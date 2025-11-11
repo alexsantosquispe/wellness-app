@@ -8,7 +8,7 @@ export const Navbar = () => {
 
   return (
     <header className="fixed top-0 z-30 flex h-16 w-full items-center justify-center border-b border-neutral-100 bg-white/50 backdrop-blur-md">
-      <div className="flex w-full flex-1 items-center justify-between px-8 text-emerald-800 md:max-w-360">
+      <div className="flex w-full flex-1 items-center justify-between px-4 text-emerald-800 md:max-w-360 md:px-8">
         <p className="text-xl font-bold">
           Wellness<strong className="px-1 text-6xl leading-0">.</strong>
           IA

@@ -5,7 +5,16 @@ This is a simple web application that displays a list of wellness services. It's
 ## Features
 
 - View a list of wellness sessions.
+- View session details.
+- Add sessions to favorites.
 - Responsive design for different screen sizes.
+
+## Screenshots
+
+<div>
+  <img src="./screenshots/desktop.webp" alt="Desktop view" width="65%"/>
+  <img src="./screenshots/mobile.webp" alt="Mobile view" width="16%"/>
+</div>
 
 ## Technologies Used
 
