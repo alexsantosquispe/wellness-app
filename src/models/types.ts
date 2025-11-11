@@ -1,11 +1,10 @@
 export interface SessionType {
   id: string;
   title: string;
+  description: string;
+  image: string;
   category: string;
   duration: number;
-  rating: number;
-  image: string;
-  description: string;
   instructor: string;
-  date: string;
+  rating: number;
 }
