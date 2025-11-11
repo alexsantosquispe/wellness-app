@@ -54,13 +54,12 @@ const SessionCard = ({
 
         <div className="flex flex-1 flex-col justify-between gap-8 p-4">
           <div className="flex flex-col gap-2">
-            <div className="flex items-center justify-between">
-              <a
-                onClick={openModal}
-                className="hover:cursor-pointer hover:text-emerald-700 hover:underline"
-              >
-                <h2 className="text-lg font-medium">{title}</h2>
-              </a>
+            <div className="flex items-center justify-between gap-4">
+              <div onClick={openModal} className="w-full py-1">
+                <h2 className="text-lg font-medium hover:cursor-pointer hover:text-emerald-700 hover:underline">
+                  {title}
+                </h2>
+              </div>
 
               <FavoriteButton
                 id={id}
