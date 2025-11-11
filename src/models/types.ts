@@ -8,3 +8,12 @@ export interface SessionType {
   instructor: string;
   rating: number;
 }
+
+export interface FavoriteItem {
+  id: string;
+  title: string;
+}
+
+export interface FavoritesState {
+  items: FavoriteItem[];
+}
