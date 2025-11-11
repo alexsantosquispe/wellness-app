@@ -1,17 +1,22 @@
+import type { FavoriteItem, SessionType } from "../../models/types";
+
 import { FavoriteButton } from "../atoms/FavoriteButton";
 import { Modal } from "../atoms/Modal";
-import type { SessionType } from "../../models/types";
 import { Spinner } from "../atoms/Spinner";
 import { getSessionById } from "../../service/api";
 import { useQuery } from "@tanstack/react-query";
 
 interface SessionDetailsModalProps {
   sessionId: string;
+  isFavorite: boolean;
+  onToggleFavorite: (item: FavoriteItem) => void;
   onClose: () => void;
 }
 
 const SessionDetailsModal = ({
   sessionId,
+  isFavorite,
+  onToggleFavorite,
   onClose
 }: SessionDetailsModalProps) => {
   const { data, isLoading } = useQuery<SessionType>({
@@ -38,10 +43,11 @@ const SessionDetailsModal = ({
               loading="lazy"
             />
             <FavoriteButton
-              ariaLabel="Favorite"
-              className="absolute top-4 right-4 text-white shadow-lg"
-              iconClassName="size-7 shadow-lg"
-              onClick={() => {}}
+              id={data.id}
+              title={data.title}
+              className="absolute top-4 right-4 text-white"
+              isFavorite={isFavorite}
+              onClick={onToggleFavorite}
             />
           </div>
 

@@ -2,8 +2,8 @@ import { Suspense, lazy, memo, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { FavoriteButton } from "./FavoriteButton";
-import type { RootState } from "../../store";
 import type { SessionType } from "../../models/types";
+import { getFavorites } from "../../store/selectors";
 import { toggleFavorite } from "../../store/slices/favoritesSlice";
 
 const LazySessionDetailsModal = lazy(
@@ -21,13 +21,14 @@ const SessionCard = ({
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
-  const favorites = useSelector((state: RootState) => state.favorites.items);
+  const favorites = useSelector(getFavorites);
+
   const isFavorite = useMemo(
     () => favorites.some((item) => item.id === id),
     [favorites, id]
   );
 
-  const onClick = () => {
+  const onSelectFavorite = () => {
     dispatch(toggleFavorite({ id, title }));
   };
 
@@ -64,12 +65,8 @@ const SessionCard = ({
               <FavoriteButton
                 id={id}
                 title={title}
-                onClick={onClick}
-                ariaLabel={
-                  isFavorite ? "Remove from favorites" : "Add to favorites"
-                }
+                onClick={onSelectFavorite}
                 isFavorite={isFavorite}
-                iconClassName={isFavorite ? "text-emerald-700" : ""}
               />
             </div>
 
@@ -91,7 +88,12 @@ const SessionCard = ({
 
       {isOpen && (
         <Suspense>
-          <LazySessionDetailsModal sessionId={id} onClose={closeModal} />
+          <LazySessionDetailsModal
+            sessionId={id}
+            onClose={closeModal}
+            isFavorite={isFavorite}
+            onToggleFavorite={onSelectFavorite}
+          />
         </Suspense>
       )}
     </>

@@ -1,25 +1,22 @@
 import type { FavoriteItem } from "../../models/types";
 import { HearthIcon } from "../../icons/HearthIcon";
+import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 
 interface FavoriteButtonProps {
   onClick: (item: FavoriteItem) => void;
   id: string;
   title: string;
-  ariaLabel: string;
   isFavorite?: boolean;
   className?: string;
-  iconClassName?: string;
 }
 
 export const FavoriteButton = ({
   onClick,
   id,
   title,
-  ariaLabel,
   isFavorite = false,
-  className,
-  iconClassName
+  className
 }: FavoriteButtonProps) => {
   const toggleFavoriteHandler = () => {
     onClick({ id, title });
@@ -29,10 +26,16 @@ export const FavoriteButton = ({
     <button
       type="button"
       onClick={toggleFavoriteHandler}
-      aria-label={ariaLabel}
-      className={twMerge("size-5 hover:cursor-pointer", className)}
+      aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+      className={twMerge(
+        "size-5 hover:cursor-pointer",
+        clsx({ "text-emerald-700": isFavorite }, className)
+      )}
     >
-      <HearthIcon isFilled={isFavorite} className={iconClassName} />
+      <HearthIcon
+        isFilled={isFavorite}
+        className={twMerge(clsx({ "text-emerald-700": isFavorite }))}
+      />
     </button>
   );
 };
