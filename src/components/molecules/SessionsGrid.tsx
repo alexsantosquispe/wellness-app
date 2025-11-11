@@ -1,5 +1,6 @@
 import SessionCard from "../atoms/SessionCard";
 import type { SessionType } from "../../models/types";
+import { Spinner } from "../atoms/Spinner";
 import { getSessions } from "../../service/api";
 import { useQuery } from "@tanstack/react-query";
 
@@ -9,13 +10,7 @@ const SessionsGrid = () => {
     queryFn: getSessions
   });
 
-  if (isLoading) {
-    return (
-      <div className="flex min-h-1/2 w-full flex-1 items-center justify-center">
-        Loading...
-      </div>
-    );
-  }
+  if (isLoading) return <Spinner />;
 
   return (
     <div className="grid w-full gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
