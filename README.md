@@ -2,6 +2,10 @@
 
 This is a simple web application that displays a list of wellness services. It's built with React, Vite, and TypeScript, and it fetches data from a mock API.
 
+## Live Demo
+
+You can view the live demo here: [https://wellness-app-sigma-six.vercel.app/](https://wellness-app-sigma-six.vercel.app/)
+
 ## Features
 
 - View a list of wellness sessions.
@@ -23,6 +27,8 @@ This is a simple web application that displays a list of wellness services. It's
 - **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
 - **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
 - **React Query:** A data-fetching library for React.
+- **Redux Toolkit:** For state management.
+- **React Redux:** Official React bindings for Redux.
 - **Axios:** A promise-based HTTP client for the browser and Node.js.
 
 ## Getting Started
