@@ -20,16 +20,17 @@ You can view the live demo here: [https://wellness-app-sigma-six.vercel.app/](ht
   <img src="./screenshots/mobile.webp" alt="Mobile view" width="16%"/>
 </div>
 
-## Technologies Used
+## Technical Decisions
 
-- **React:** A JavaScript library for building user interfaces.
-- **Vite:** A fast build tool for modern web projects.
-- **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
-- **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
-- **React Query:** A data-fetching library for React.
-- **Redux Toolkit:** For state management.
-- **React Redux:** Official React bindings for Redux.
-- **Axios:** A promise-based HTTP client for the browser and Node.js.
+- **State Management:** The application uses a combination of Redux Toolkit and React Query for state management.
+  - **Redux Toolkit** is used for managing global UI state, in order to temporary store the favorite sessions.
+  - **React Query** is used for managing server state, including caching, refetching, and updating data from the API. This simplifies data fetching and reduces the amount of boilerplate code.
+
+- **Styling:** The application is styled using **Tailwind CSS**, a utility-first CSS framework. This choice was made to enable rapid UI development and maintain a consistent design system.
+
+- **Data Fetching:** **Axios** is used to make HTTP requests to the mock API. A centralized API client is created to handle all API requests, making it easy to configure and manage the API connection.
+
+- **Code Structure:** The project follows an atomic design system, to organize the codebase in a more maintainable and scalable way.
 
 ## Getting Started
 
@@ -44,7 +45,11 @@ To get a local copy up and running, follow these simple steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username/wellness-app.git
+   git clone git@github.com:alexsantosquispe/wellness-app.git
+   ```
+   or
+   ```sh
+   git clone https://github.com/alexsantosquispe/wellness-app.git
    ```
 2. Install NPM packages
    ```sh
