@@ -13,7 +13,7 @@ export const SESSIONS_MOCK = [
   },
   {
     id: "2",
-    title: "Guided Meditation for Stress Relief",
+    title: "Guided Meditation",
     category: "Meditation",
     duration: 30,
     rating: 4.6,

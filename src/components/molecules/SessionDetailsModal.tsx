@@ -10,7 +10,7 @@ interface SessionDetailsModalProps {
   onClose: () => void;
 }
 
-export const SessionDetailsModal = ({
+const SessionDetailsModal = ({
   sessionId,
   onClose
 }: SessionDetailsModalProps) => {
@@ -34,7 +34,7 @@ export const SessionDetailsModal = ({
             <img
               src={data.image}
               alt={data.title}
-              className="h-full max-h-60 w-full rounded-md object-cover"
+              className="h-full max-h-80 w-full rounded-md object-cover"
               loading="lazy"
             />
             <FavoriteButton
@@ -62,3 +62,5 @@ export const SessionDetailsModal = ({
     </Modal>
   );
 };
+
+export default SessionDetailsModal;

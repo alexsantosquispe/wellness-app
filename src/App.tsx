@@ -1,6 +1,12 @@
-import { Footer } from "./components/atoms/Footer";
+import { Suspense, lazy } from "react";
+
 import { Navbar } from "./components/atoms/Navbar";
-import SessionsGrid from "./components/molecules/SessionsGrid";
+import { Spinner } from "./components/atoms/Spinner";
+
+const LazySessionsGrid = lazy(
+  () => import("./components/molecules/SessionsGrid")
+);
+const LazyFooter = lazy(() => import("./components/atoms/Footer"));
 
 function App() {
   return (
@@ -18,9 +24,14 @@ function App() {
           </p>
         </div>
 
-        <SessionsGrid />
+        <Suspense fallback={<Spinner />}>
+          <LazySessionsGrid />
+        </Suspense>
       </main>
-      <Footer />
+
+      <Suspense fallback={<Spinner />}>
+        <LazyFooter />
+      </Suspense>
     </div>
   );
 }

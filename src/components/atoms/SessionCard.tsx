@@ -1,7 +1,11 @@
+import { Suspense, lazy, memo, useState } from "react";
+
 import { FavoriteButton } from "./FavoriteButton";
-import { SessionDetailsModal } from "../molecules/SessionDetailsModal";
 import type { SessionType } from "../../models/types";
-import { useState } from "react";
+
+const LazySessionDetailsModal = lazy(
+  () => import("../molecules/SessionDetailsModal")
+);
 
 const SessionCard = ({
   id,
@@ -33,8 +37,8 @@ const SessionCard = ({
           />
         </div>
 
-        <div className="flex flex-col justify-between gap-8 p-4">
-          <div className="flex h-[130px] flex-col gap-2">
+        <div className="flex flex-1 flex-col justify-between gap-8 p-4">
+          <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <a
                 onClick={openModal}
@@ -44,12 +48,12 @@ const SessionCard = ({
               </a>
               <FavoriteButton onClick={() => {}} ariaLabel="Favorite" />
             </div>
-            <p className="line-clamp-3 text-sm text-neutral-600">
+            <p className="line-clamp-2 text-sm text-neutral-600">
               {description}
             </p>
           </div>
 
-          <div className="flex items-center justify-between text-xs font-semibold uppercase">
+          <div className="flex items-end justify-between text-xs font-semibold uppercase">
             <span className="rounded-full bg-emerald-700 px-2 py-1 text-white">
               {category}
             </span>
@@ -60,9 +64,13 @@ const SessionCard = ({
         </div>
       </div>
 
-      {isOpen && <SessionDetailsModal sessionId={id} onClose={closeModal} />}
+      {isOpen && (
+        <Suspense>
+          <LazySessionDetailsModal sessionId={id} onClose={closeModal} />
+        </Suspense>
+      )}
     </>
   );
 };
 
-export default SessionCard;
+export default memo(SessionCard);
