@@ -29,12 +29,12 @@ export const FavoriteButton = ({
       aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
       className={twMerge(
         "size-5 hover:cursor-pointer",
-        clsx({ "text-emerald-700": isFavorite }, className)
+        clsx({ "text-emerald-700 dark:text-emerald-600": isFavorite }, className)
       )}
     >
       <HearthIcon
         isFilled={isFavorite}
-        className={twMerge(clsx({ "text-emerald-700": isFavorite }))}
+        className={twMerge(clsx({ "text-emerald-700 dark:text-emerald-500": isFavorite }))}
       />
     </button>
   );

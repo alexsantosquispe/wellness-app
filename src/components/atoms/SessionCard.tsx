@@ -42,7 +42,7 @@ const SessionCard = ({
 
   return (
     <>
-      <div className="flex flex-col overflow-hidden rounded-xl border border-neutral-300">
+      <div className="flex flex-col overflow-hidden rounded-xl border border-neutral-300 dark:border-neutral-700">
         <div className="aspect-ratio-4/3 w-full overflow-hidden bg-neutral-100">
           <img
             src={image}
@@ -69,16 +69,16 @@ const SessionCard = ({
               />
             </div>
 
-            <p className="line-clamp-2 text-sm text-neutral-600">
+            <p className="line-clamp-2 text-sm text-neutral-600 dark:text-neutral-200">
               {description}
             </p>
           </div>
 
           <div className="flex items-end justify-between text-xs font-semibold uppercase">
-            <span className="rounded-full bg-emerald-700 px-2 py-1 text-white">
+            <span className="rounded-full bg-emerald-700 dark:bg-emerald-600 px-2 py-1 text-white">
               {category}
             </span>
-            <span className="rounded-full border border-neutral-500 px-2 py-1 text-neutral-500">
+            <span className="rounded-full border border-neutral-500 dark:border-neutral-200 px-2 py-1 text-neutral-500 dark:text-neutral-200">
               {duration} min
             </span>
           </div>
