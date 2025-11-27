@@ -22,7 +22,7 @@
     "react-redux": "^9.2.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "4.1.17",
-    "use-theme-hook": "file:../../packages/use-theme-hook"
+    "use-theme-hook": "file:use-theme-hook-1.0.0.tgz"
   },
   "devDependencies": {
     "@eslint/js": "9.39.1",
